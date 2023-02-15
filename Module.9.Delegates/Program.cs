@@ -8,12 +8,12 @@ namespace Module._9.Delegates
         {
             try
             {
-                throw new ArgumentOutOfRangeException("Сообщение об ошибке");
+                throw new RankException();
             }
 
-            catch (ArgumentOutOfRangeException ex)
+            catch (RankException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType());
             }
 
             finally
