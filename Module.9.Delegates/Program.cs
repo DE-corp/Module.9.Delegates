@@ -6,10 +6,20 @@ namespace Module._9.Delegates
     {
         static void Main(string[] args)
         {
-            Exception myEx = new Exception("Какая то ошибка..");
+            try
+            {
+                throw new ArgumentOutOfRangeException("Сообщение об ошибке");
+            }
 
-            myEx.HelpLink = "https://www.google.com/";
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
+            finally
+            {
+                Console.Read();
+            }
         }
     }
 }
