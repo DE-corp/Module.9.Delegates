@@ -6,7 +6,10 @@ namespace Module._9.Delegates
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Exception myEx = new Exception();
+
+            myEx.Data.Add("Дата", DateTime.Now);
+
         }
     }
 }
