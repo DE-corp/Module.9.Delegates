@@ -6,9 +6,9 @@ namespace Module._9.Delegates
     {
         static void Main(string[] args)
         {
-            Exception myEx = new Exception();
+            Exception myEx = new Exception("Какая то ошибка..");
 
-            myEx.Data.Add("Дата", DateTime.Now);
+            myEx.HelpLink = "https://www.google.com/";
 
         }
     }
