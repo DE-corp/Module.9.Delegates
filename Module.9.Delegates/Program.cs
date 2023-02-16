@@ -4,20 +4,28 @@ namespace Module._9.Delegates
 {
     class Program
     {
-        delegate void ShowMessageDelegate();
-        delegate int SumDelegate(int a, int b, int c);
-        delegate bool CheckLengthDelegate(string _row);
+        //delegate void ShowMessageDelegate();
+        //delegate int SumDelegate(int a, int b, int c);
+        //delegate bool CheckLengthDelegate(string _row);
 
         static void Main(string[] args)
         {
-            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            //ShowMessageDelegate showMessageDelegate = ShowMessage;
+            //showMessageDelegate.Invoke();
+            Action showMessageDelegate = ShowMessage;
             showMessageDelegate.Invoke();
 
-            SumDelegate sumDelegate = Sum;
+            //SumDelegate sumDelegate = Sum;
+            //int result = sumDelegate.Invoke(1, 30, 120);
+            //Console.WriteLine(result);
+            Func<int, int, int, int> sumDelegate = Sum;
             int result = sumDelegate.Invoke(1, 30, 120);
             Console.WriteLine(result);
 
-            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            //CheckLengthDelegate checkLengthDelegate = CheckLength;
+            //bool status = checkLengthDelegate.Invoke("skill_factory");
+            //Console.WriteLine(status);
+            Predicate<string> checkLengthDelegate = CheckLength;
             bool status = checkLengthDelegate.Invoke("skill_factory");
             Console.WriteLine(status);
         }
