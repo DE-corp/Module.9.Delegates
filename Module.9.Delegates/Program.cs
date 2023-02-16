@@ -4,20 +4,24 @@ namespace Module._9.Delegates
 {
     class Program
     {
-        public delegate int CalculateDelegate(int a, int b);
+        public delegate void CalculateDelegate(int a, int b);
 
         static void Main(string[] args)
         {
-            CalculateDelegate calcDelegate = Calculate;
-            int result = calcDelegate.Invoke(2, 5);
-            int result1 = calcDelegate(2, 5);
-            Console.WriteLine(result);
-            Console.WriteLine(result1);
+            CalculateDelegate calcDelegate = Subtraction;
+            calcDelegate += Addition;
+
+            calcDelegate(7, 3);
         }
 
-        static int Calculate(int a, int b)
+        static void Subtraction(int a, int b)
         {
-            return a - b;
+            Console.WriteLine($"Вычитание: {a - b}");
+        }
+
+        static void Addition(int a, int b)
+        {
+            Console.WriteLine($"Сложение: {a + b}");
         }
     }
 }
