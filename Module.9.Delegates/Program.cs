@@ -4,46 +4,16 @@ namespace Module._9.Delegates
 {
     class Program
     {
-        //delegate void ShowMessageDelegate();
-        //delegate int SumDelegate(int a, int b, int c);
-        //delegate bool CheckLengthDelegate(string _row);
-
+        delegate void ShowMessageDelegate(string _message);
         static void Main(string[] args)
         {
-            //ShowMessageDelegate showMessageDelegate = ShowMessage;
-            //showMessageDelegate.Invoke();
-            Action showMessageDelegate = ShowMessage;
-            showMessageDelegate.Invoke();
-
-            //SumDelegate sumDelegate = Sum;
-            //int result = sumDelegate.Invoke(1, 30, 120);
-            //Console.WriteLine(result);
-            Func<int, int, int, int> sumDelegate = Sum;
-            int result = sumDelegate.Invoke(1, 30, 120);
-            Console.WriteLine(result);
-
-            //CheckLengthDelegate checkLengthDelegate = CheckLength;
-            //bool status = checkLengthDelegate.Invoke("skill_factory");
-            //Console.WriteLine(status);
-            Predicate<string> checkLengthDelegate = CheckLength;
-            bool status = checkLengthDelegate.Invoke("skill_factory");
-            Console.WriteLine(status);
-        }
-
-        static void ShowMessage()
-        {
-            Console.WriteLine("Hello World!");
-        }
-
-        static int Sum(int a, int b, int c)
-        {
-            return a + b + c;
-        }
-
-        static bool CheckLength(string _row)
-        {
-            if (_row.Length > 3) return true;
-            return false;
+            ShowMessageDelegate showMessageDelegate = delegate (string _message)
+            {
+                Console.WriteLine(_message);
+            };
+            showMessageDelegate.Invoke("Hello World!");
+            Console.Read();
         }
     }
 }
+
