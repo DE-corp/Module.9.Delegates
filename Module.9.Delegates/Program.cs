@@ -4,22 +4,18 @@ namespace Module._9.Delegates
 {
     class Program
     {
+        public delegate int CalculateDelegate(int a, int b);
+
         static void Main(string[] args)
         {
-            try
-            {
-                throw new RankException();
-            }
+            CalculateDelegate calcDelegate = Calculate;
+            int result = calcDelegate.Invoke(2, 5);
+            Console.WriteLine(result);
+        }
 
-            catch (RankException ex)
-            {
-                Console.WriteLine(ex.GetType());
-            }
-
-            finally
-            {
-                Console.Read();
-            }
+        static int Calculate(int a, int b)
+        {
+            return a - b;
         }
     }
 }
