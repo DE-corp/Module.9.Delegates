@@ -10,7 +10,9 @@ namespace Module._9.Delegates
         {
             CalculateDelegate calcDelegate = Calculate;
             int result = calcDelegate.Invoke(2, 5);
+            int result1 = calcDelegate(2, 5);
             Console.WriteLine(result);
+            Console.WriteLine(result1);
         }
 
         static int Calculate(int a, int b)
