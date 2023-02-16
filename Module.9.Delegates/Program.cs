@@ -11,6 +11,7 @@ namespace Module._9.Delegates
             CalculateDelegate calcDelegate = Subtraction;
             calcDelegate += Addition;
 
+            calcDelegate -= Addition;
             calcDelegate(7, 3);
         }
 
