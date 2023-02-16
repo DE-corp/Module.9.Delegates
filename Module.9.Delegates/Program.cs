@@ -4,25 +4,38 @@ namespace Module._9.Delegates
 {
     class Program
     {
-        public delegate void CalculateDelegate(int a, int b);
+        delegate void ShowMessageDelegate();
+        delegate int SumDelegate(int a, int b, int c);
+        delegate bool CheckLengthDelegate(string _row);
 
         static void Main(string[] args)
         {
-            CalculateDelegate calcDelegate = Subtraction;
-            calcDelegate += Addition;
+            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            showMessageDelegate.Invoke();
 
-            calcDelegate -= Addition;
-            calcDelegate(7, 3);
+            SumDelegate sumDelegate = Sum;
+            int result = sumDelegate.Invoke(1, 30, 120);
+            Console.WriteLine(result);
+
+            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            bool status = checkLengthDelegate.Invoke("skill_factory");
+            Console.WriteLine(status);
         }
 
-        static void Subtraction(int a, int b)
+        static void ShowMessage()
         {
-            Console.WriteLine($"Вычитание: {a - b}");
+            Console.WriteLine("Hello World!");
         }
 
-        static void Addition(int a, int b)
+        static int Sum(int a, int b, int c)
         {
-            Console.WriteLine($"Сложение: {a + b}");
+            return a + b + c;
+        }
+
+        static bool CheckLength(string _row)
+        {
+            if (_row.Length > 3) return true;
+            return false;
         }
     }
 }
