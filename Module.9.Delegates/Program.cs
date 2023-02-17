@@ -2,21 +2,21 @@
 
 namespace Module._9.Delegates
 {
-    class Car { }
-    class Lexus : Car { }
+    class Parent { }
+    class Child : Parent { }
 
     class Program
     {
-        delegate Car CarDelegate();
+        delegate void ChildDelegate(Child child);
 
         static void Main(string[] args)
         {
-            CarDelegate carDelegate = BuildLexus;
+            ChildDelegate childDelegate = GetChildInfo;
         }
 
-        static Lexus BuildLexus()
+        static void GetChildInfo(Parent parent)
         {
-            return null;
+          
         }
     }
 }
