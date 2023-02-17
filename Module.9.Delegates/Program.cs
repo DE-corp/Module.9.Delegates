@@ -2,20 +2,21 @@
 
 namespace Module._9.Delegates
 {
+    class Car { }
+    class Lexus : Car { }
+
     class Program
     {
-        delegate int RandomNumberDelegate();
+        delegate Car CarDelegate();
 
         static void Main(string[] args)
         {
-            RandomNumberDelegate randomNumberDelegate = () =>
-            {
-                return new Random().Next(0, 100);
-            };
+            CarDelegate carDelegate = BuildLexus;
+        }
 
-            int result = randomNumberDelegate.Invoke();
-            Console.WriteLine(result);
-            Console.Read();
+        static Lexus BuildLexus()
+        {
+            return null;
         }
     }
 }
